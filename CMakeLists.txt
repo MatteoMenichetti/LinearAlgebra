@@ -3,4 +3,4 @@ project(multBmatrix C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(multBmatrix src/OperationBetweenMatrix/main.c)
+add_executable(multBmatrix src/OperationBetweenMatrix/product.c)
