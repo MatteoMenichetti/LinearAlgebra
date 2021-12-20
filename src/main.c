@@ -1,4 +1,4 @@
-#include "operation.h"
+#include "../lib/operation.h"
 
 
 void printResult(int rowA, int colB, const int matr[rowA][colB]) {
