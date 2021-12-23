@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 int sum(const int *a, int rowB, int colB, int j, int b[rowB][colB]) {
     int c = 0, limiter = rowB;
     for (int i = 0; i < limiter; i++)
