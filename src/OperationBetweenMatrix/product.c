@@ -7,7 +7,7 @@ int sum(const int *a, int rowB, int colB, int j, int b[rowB][colB]) {
     return c;
 }
 
-void mul(int rowA, int colA, int a[rowA][colA], int rowB, int colB, int b[rowB][colB], int AB[rowA][colB]) {
+void multiplication(int rowA, int colA, int a[rowA][colA], int rowB, int colB, int b[rowB][colB], int AB[rowA][colB]) {
     if ((colA != rowB))return;
     int colAB = 0, rowAB = 0;
     for (int i = 0; i < rowA; i++) {
