@@ -3,4 +3,4 @@ project(LinearAlgebra C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(LinearAlgebra src/OperationBetweenMatrix/product.c src/main.c)
+add_executable(LinearAlgebra src/OperationBetweenMatrix/sum.c src/OperationBetweenMatrix/product.c src/main.c)
