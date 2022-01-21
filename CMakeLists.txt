@@ -1,12 +1,14 @@
 cmake_minimum_required(VERSION 3.20)
-project(LinearAlgebra C)
+project(LinearAlgebra C CXX)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(LinearAlgebra src/OperationBetweenMatrix/sum.c src/OperationBetweenMatrix/product.c src/main.c)
-add_subdirectory(test)
+set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES ../lib/operation.h ../src/OperationBetweenMatrix/sum.c ../src/OperationBetweenMatrix/product.c)
-add_executable(test ./test/runAllTest.cpp)
-add_library(core ${SOURCE_FILES})
-target_link_libraries(test core)
+add_executable(LinearAlgebraTests test/runAllTest.cpp ./test/test.cpp src/OperationBetweenMatrix/sum.c src/OperationBetweenMatrix/product.c src/createMatrix.c)
+
+add_subdirectory(test/lib/googletest)
+include_directories(lib/googletest/googletest/include)
+include_directories(lib/googletest/googlemock/include)
+
+target_link_libraries(LinearAlgebraTests gtest gtest_main)
