@@ -1,7 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+int **  multiplication(int **a, int**b);
 
-void multiplication(int rowA, int colA, int a[rowA][colA], int rowB, int colB, int b[rowB][colB], int AB[rowA][colB]);
-
-void sum(int row, int col, int A[row][col],int B[row][col], int ApB[row][col]);
+int **sum(int **a, int **b);
 
 int ** createMatrix (int row, int column);
