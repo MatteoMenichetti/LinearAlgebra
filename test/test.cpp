@@ -1,9 +1,10 @@
-#include "gtest/gtest.h"
-#include "../lib/operation.h"
+#include <gtest/gtest.h>
+#include "../src/createMatrix.c"
 
 TEST(Test, creationOfMatrix) {
     int row = 2, column = 3, **matrix = createMatrix(row, column);
-    EXPECT_EQ(row, *matrix[0]);
-    ASSERT_EQ(column, *matrix[1]);
+    int testRow = *matrix[0], testCol = *matrix[1];
+    EXPECT_EQ(row, testRow);
+    ASSERT_EQ(column, testCol);
     free(matrix);
 }
