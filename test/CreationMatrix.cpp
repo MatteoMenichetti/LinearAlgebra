@@ -20,3 +20,13 @@ TEST(creationMatrix, testMatrix1Col) {
 
     comparison(matrix, column, row);
 }
+
+TEST(creationMatrix, testMatrixNRowMCol) {
+    int row = 30, column = 25, **matrix = createMatrix(row, column);
+
+    comparison(matrix, column, row);
+
+    row=25, column=30, matrix= createMatrix(row, column);
+
+    comparison(matrix, column, row);
+}
