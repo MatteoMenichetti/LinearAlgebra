@@ -8,6 +8,12 @@ void comparison(int **matrix, int column, int row) {
     free(matrix);
 }
 
+TEST(createMatrix, testMatrix0Col0Row){
+    ASSERT_THAT(createMatrix(0, 0), testing::IsNull());
+    ASSERT_THAT(createMatrix(0, 1), testing::IsNull());
+    ASSERT_THAT(createMatrix(1, 0), testing::IsNull());
+}
+
 TEST(creationMatrix, testMatrix1Row) {
     int row = 1, column = 3, **matrix = createMatrix(row, column);
 
