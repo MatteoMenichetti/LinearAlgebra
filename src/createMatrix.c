@@ -8,7 +8,9 @@ int **createMatrix(int row, int column) {
     for (int i = 0; i < column + 2; i++) {
         matrix[i] = (int *) calloc(row, sizeof(int));
     }
-    *matrix[0] = row + 1;
-    *matrix[1] = column + 2;
+
+    *matrix[0] = row + 1; // + 1 perché la prima riga effettiva della matrice sono indirizzi a vettori
+    *matrix[1] = column + 2; //+ 2 perché i primi due elementi memorizzano la dimensione della matrice
+
     return matrix;
 }
