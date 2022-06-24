@@ -18,6 +18,12 @@ TEST(OperationBetweenMatrixTests, sumBewtween1RowMatrix) {
     i++;
     matrixS = sum(matrixA, matrixB);
     for (int c = 0; c < column - 2; c++)
-        for (int r = 0; r < row; r++)
+        for (int r = 0; r < row; r++) {
             EXPECT_EQ(matrixA[COL(c)][ROW(r)] + matrixB[COL(c)][ROW(r)], matrixS[COL(c)][ROW(r)]);
+            EXPECT_EQ(matrixS[COL(c)][ROW(r)], 3);
+        }
+    //modificare anche con la deallocazione dei vettori per ogni posizione dei matrixA/B/S
+    free(matrixA);
+    free(matrixB);
+    free(matrixS);
 }
