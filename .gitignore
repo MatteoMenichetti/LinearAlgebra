@@ -1,4 +1,2 @@
 /cmake-build-debug/
-/tests/
-/tests/check_product.c
-/tests/CMakeLists.txt
+/src/main.c
