@@ -4,9 +4,9 @@ project(LinearAlgebra LANGUAGES C CXX)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(LinearAlgebraTest src/createMatrix.c test/runAllTest.cpp test/OperationBetweenMatrixTests.cpp test/CreationMatrix.cpp test/randomizeValueMatrix.c)
+add_executable(LinearAlgebraTest src/createMatrix.c test/runAllTest.cpp test/OperationBetweenMatrixTests.cpp test/CreationMatrix.cpp lib/indexing.h)
 
-add_executable(LinearAlgebra ./src/main.c)
+add_executable(LinearAlgebra ./src/main.c lib/indexing.h)
 
 add_subdirectory(lib/googletest)
 include_directories(lib/googletest/googletest/include)
