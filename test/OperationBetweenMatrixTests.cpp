@@ -3,27 +3,36 @@
 #include "../lib/indexing.h"
 #include "../src/OperationBetweenMatrix/sum.c"
 
-TEST(OperationBetweenMatrixTests, sumBewtween1RowMatrix) {
-    int row = 1, column = 3, **matrixA = createMatrix(row, column), **matrixB = createMatrix(row,
-                                                                                             column), **matrixS;
-
-    for (int c = 0; c < column - 2; c++) {
-        for (int r = 0; r < row; r++) {
-            matrixA[COL(c)][ROW(r)] = 1;
-            matrixB[COL(c)][ROW(r)] = 2;
-        }
-    }
-
-    int i = matrixA[COL(1)][0];
-    i++;
-    matrixS = sum(matrixA, matrixB);
-    for (int c = 0; c < column - 2; c++)
-        for (int r = 0; r < row; r++) {
-            EXPECT_EQ(matrixA[COL(c)][ROW(r)] + matrixB[COL(c)][ROW(r)], matrixS[COL(c)][ROW(r)]);
-            EXPECT_EQ(matrixS[COL(c)][ROW(r)], 3);
-        }
-    //modificare anche con la deallocazione dei vettori per ogni posizione dei matrixA/B/S
+void dealloc(int **matrixA, int **matrixB,
+             int **matrixS) {
     free(matrixA);
     free(matrixB);
     free(matrixS);
 }
+
+void assignmentValue(int **matrixA, int **matrixB) {
+    for (int c = 0; c < matrixA[COLP][0]; c++) {
+        for (int r = 0; r < matrixA[ROWP][0]; r++) {
+            int testC = COL(c), testR = ROW(r);
+            matrixA[ROW(r)][COL(c)] = 1;
+            matrixB[ROW(r)][COL(c)] = 2;
+        }
+    }
+
+}
+
+TEST(OperationBetweenMatrixTests, sumBewtween1RowMatrix) {
+
+    int row = 1, column = 3, **matrixA = createMatrix(row, column), **matrixB = createMatrix(row,
+                                                                                             column), **matrixS;
+    assignmentValue(matrixA, matrixB);
+
+    matrixS = sum(matrixA, matrixB);
+    for (int c = 0; c < column - 2; c++)
+        for (int r = 0; r < row; r++) {
+            ASSERT_EQ(matrixS[ROW(r)][COL(c)], 3);
+        }
+
+    dealloc(matrixA, matrixB, matrixS);
+}
+
