@@ -3,8 +3,8 @@
 #include "../src/createMatrix.c"
 
 void comparison(int **matrix, int column, int row) {
-    EXPECT_EQ(column + 2, *matrix[1]);
-    EXPECT_EQ(row + 1, *matrix[0]);
+    EXPECT_EQ(column + 2, *matrix[COLP]);
+    EXPECT_EQ(row + 1, *matrix[ROWP]);
     free(matrix);
 }
 
