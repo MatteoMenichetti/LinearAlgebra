@@ -3,12 +3,13 @@
 #include "../src/createMatrix.c"
 
 void comparison(int **matrix, int column, int row) {
-    EXPECT_EQ(column + 2, *matrix[COLP]);
-    EXPECT_EQ(row + 1, *matrix[ROWP]);
+    ASSERT_NE(matrix, (int **)0);
+    ASSERT_EQ(column + 2, *matrix[COLP]);
+    ASSERT_EQ(row + 1, *matrix[ROWP]);
     free(matrix);
 }
 
-TEST(createMatrix, testMatrix0Col0Row) {
+TEST(creationMatrix, testMatrix0Col0Row) {
     ASSERT_THAT(createMatrix(0, 0), testing::IsNull());
     ASSERT_THAT(createMatrix(0, 1), testing::IsNull());
     ASSERT_THAT(createMatrix(1, 0), testing::IsNull());
