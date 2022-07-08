@@ -1,19 +1,15 @@
 #include "../../lib/operation.h"
+#include "../../lib/indexing.h"
 
-int multiplication_sum(const int *a, int rowB, int colB, int j, int b[rowB][colB]) {
-    int c = 0, limiter = rowB;
-    for (int i = 0; i < limiter; i++)
-        c += a[i] * b[i][j];
-    return c;
+int multiplication_sum() {
+
+    return 0;
 }
 
-int ** multiplication(int**a, int **b) {
-    /*if ((colA != rowB))return;
-    int colAB = 0, rowAB = 0;
-    for (int i = 0; i < rowA; i++) {
-        for (int j = 0; j < colB; j++)
-            AB[rowAB][colAB++] = multiplication_sum(&a[i][0], rowB, colB, j, b);
-        rowAB++;
-        colAB = 0;
-    }*/
+int **multiplication(int **a, int **b) {
+    if (a[COLP][0] != b[ROWP][0])return 0;
+
+
+
+    return 0;
 }
