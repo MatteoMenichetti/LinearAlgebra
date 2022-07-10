@@ -10,7 +10,7 @@ int **createMatrix(int row, int column) {
         matrix[i] = (int *) calloc(row, sizeof(int));
     }
 
-    *matrix[ROWP] = row + 1; // + 1 perché la prima riga effettiva della matrice sono indirizzi a vettori
-    *matrix[COLP] = column + 2; // + 2 perché i primi due elementi memorizzano la dimensione della matrice
+    matrix[0][ROWP] = row;
+    matrix[0][COLP] = column + 2; // + 2 perché i primi due elementi memorizzano la dimensione della matrice
     return matrix;
 }
