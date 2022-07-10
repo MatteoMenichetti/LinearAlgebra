@@ -2,10 +2,11 @@
 #include <gmock/gmock.h>
 #include "../src/createMatrix.c"
 
-void comparison(int **matrix, int column, int row) {
-    ASSERT_NE(matrix, (int **)0);
-    ASSERT_EQ(column + 2, *matrix[COLP]);
-    ASSERT_EQ(row + 1, *matrix[ROWP]);
+void comparison(int **matrix, int row, int column) {
+    ASSERT_NE(matrix, nullptr);
+    ASSERT_EQ(column + 2, matrix[0][COLP]);
+    ASSERT_EQ(row, matrix[0][ROWP]);
+
     free(matrix);
 }
 
@@ -18,22 +19,22 @@ TEST(creationMatrix, testMatrix0Col0Row) {
 TEST(creationMatrix, testMatrix1Row) {
     int row = 1, column = 3, **matrix = createMatrix(row, column);
 
-    comparison(matrix, column, row);
+    comparison(matrix, row, column);
 }
 
 
 TEST(creationMatrix, testMatrix1Col) {
     int row = 3, column = 1, **matrix = createMatrix(row, column);
 
-    comparison(matrix, column, row);
+    comparison(matrix, row, column);
 }
 
 TEST(creationMatrix, testMatrixNRowMCol) {
     int row = 30, column = 25, **matrix = createMatrix(row, column);
 
-    comparison(matrix, column, row);
+    comparison(matrix, row, column);
 
     row = 25, column = 30, matrix = createMatrix(row, column);
 
-    comparison(matrix, column, row);
+    comparison(matrix, row, column);
 }
