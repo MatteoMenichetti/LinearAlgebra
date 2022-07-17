@@ -6,7 +6,6 @@ void comparison(int **matrix, int row, int column) {
     ASSERT_NE(matrix, nullptr);
     ASSERT_EQ(column + 2, matrix[0][COLP]);
     ASSERT_EQ(row, matrix[0][ROWP]);
-
     free(matrix);
 }
 
