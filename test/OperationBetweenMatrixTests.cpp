@@ -14,8 +14,8 @@ void assignmentValue(int **matrixA, int **matrixB) {
     for (int c = 0; COL(c) < matrixA[0][COLP]; c++) {
         for (int r = 0; r < matrixA[0][ROWP]; r++) {
             int testC = COL(c), testR = ROW(r);
-            matrixA[ROW(r)][COL(c)] = 1;
-            matrixB[ROW(r)][COL(c)] = 2;
+            matrixA[ROW(r)][COL(c)] = 2;
+            matrixB[ROW(r)][COL(c)] = 3;
         }
     }
 
@@ -31,7 +31,7 @@ TEST(OperationBetweenMatrixTests, sumBewtween1RowMatrix) {
     ASSERT_NE(matrixS, nullptr);
     for (int c = 0; c < column; c++)
         for (int r = 0; r < row; r++) {
-            ASSERT_EQ(matrixS[ROW(r)][COL(c)], 3);
+            ASSERT_EQ(matrixS[ROW(r)][COL(c)], 5);
         }
 
     dealloc(matrixA, matrixB, matrixS);
@@ -46,7 +46,7 @@ TEST(OperationBetweenMatrixTests, sumBewtween1ColumnMatrix) {
     matrixS = sum(matrixA, matrixB);
     for (int c = 0; c < column - 2; c++)
         for (int r = 0; r < row; r++) {
-            ASSERT_EQ(matrixS[ROW(r)][COL(c)], 3);
+            ASSERT_EQ(matrixS[ROW(r)][COL(c)], 5);
         }
 
     dealloc(matrixA, matrixB, matrixS);
@@ -61,8 +61,14 @@ TEST(OperationBetweenMatrixTests, sumBewtweenRowEqColumnMatrix) {
     matrixS = sum(matrixA, matrixB);
     for (int c = 0; c < column - 2; c++)
         for (int r = 0; r < row; r++) {
-            ASSERT_EQ(matrixS[ROW(r)][COL(c)], 3);
+            ASSERT_EQ(matrixS[ROW(r)][COL(c)], 5);
         }
 
     dealloc(matrixA, matrixB, matrixS);
+}
+
+TEST(OperationBetweenMatrixTests, productBetween2Column3RowMatrix) {
+    int row=3, column=2, **matrixA = createMatrix(row, column), **matrixB = createMatrix(column,
+                                                                                         row), **matrixS;
+
 }
